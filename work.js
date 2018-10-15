@@ -23,22 +23,22 @@ let getVideoResult = function() {
             "detection_fps":2
         }    
         if (videoResult != null && videoResult !== undefined) {
-            resolve();
+            resolve(videoResult);
         } else {
             reject("no valid videoResult here! ");
         }
     });
 } 
 
-let genArr = function(){
+let genArr = function(videoResult){
     return new Promise(function(resolve, reject) {
-        var dataArr = new Array(length);
-        console.log(message);
+        let length = Object.keys(videoResult[Object.keys(videoResult)[3]]).length;
+        let dataArr = new Array(length);
         for(let j=0; j< dataArr.length; ++j){
             dataArr[j] = new Array();
         }
         if (dataArr  != null && dataArr  !== undefined) {
-            resolve(dataArr, message);
+            resolve([dataArr,videoResult]);
         } else {
             reject("no array of data here! ");
         }
@@ -46,14 +46,20 @@ let genArr = function(){
 
 }
 
+let fillArr = function(dataArr, videoResult){
+    return new Promise(function(resolve, reject) {
+        for()
+
+    });
+}
 
 
 getVideoResult()
-        .then(length => genArr(length))
-        .then(dataArr => console.log(dataArr))
+        .then(videoResult => genArr(videoResult))
+        .then(outputGenArr => console.log(outputGenArr[0],outputGenArr[1]))
         .catch(error => console.error('Something happened:', error));
     ;
 
-console.log(1,2);
+//console.log(1,2);
 
 // Object.keys(videoResult[Object.keys(videoResult)[3]]).length

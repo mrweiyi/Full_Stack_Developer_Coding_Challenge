@@ -21,7 +21,8 @@ api.retrieveToken()
 // Get video results
 
 
-var videoResults = getVidoeResults('5bc3d5722300422fc58c7b02').then(console,log("SUccess! :"));
+var videoResults = getVidoeResults('5bc3d5722300422fc58c7b02');
+
 function getVidoeResults(videoId) {
     api.retrieveToken()
         .then(token => api.getVideoResults(videoId, 0.998, JSON))

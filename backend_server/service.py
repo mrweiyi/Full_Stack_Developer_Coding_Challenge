@@ -86,7 +86,7 @@ def getScene(arr):
     start = 0
     length = len(arr)
     for i in range(1, length): 
-        if(arr[i] - arr[i-1] > 1.5):
+        if(arr[i] - arr[i-1] > 10):
             res.append(str(arr[start]) + '-' + str(arr[i-1]))
             start = i
         if(i == length - 1):

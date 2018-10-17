@@ -2,8 +2,8 @@ const Matroid = require('matroid');
 const util = require('util');
 let api = new Matroid({clientId: 'H4AaifnFA4177jWX', clientSecret: '2nwzFJpDCPnpHBMSWrbnEPj4szO3XuPg'});
 var rpcClient = require('./rpc_client');
-let videoId = '5bc3d5722300422fc58c7b02';
-
+// let videoId = '5bc3d5722300422fc58c7b02';
+let videoId = '5a3ec65b37939b0013123535';
 
 
 let getVideoResult = function(videoResult) {
@@ -58,7 +58,7 @@ let getActorsScenes= function(json_string) {
 }
 
 api.retrieveToken()
-.then(token => api.getVideoResults(videoId, 0.994, JSON))
+.then(token => api.getVideoResults(videoId, 0.5, JSON))
 .then(classifications => getVideoResult(classifications) )
 .then(videoResult => genArr(videoResult))
 .then(outputGenArr => fillArr(outputGenArr[0],outputGenArr[1]))

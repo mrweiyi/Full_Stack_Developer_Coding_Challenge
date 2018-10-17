@@ -1,9 +1,17 @@
 # matroidCodingChallenge
 Matroid Coding Challenge
 
+# Project Abstract 
+This project provides a REST API for users to get current outcome of a video (correspond to a unique video ID), where the ranges of time of some certain actors will be returned.
+
+# Project Set-up
+Firstly, for the first time installation in a fresh Ubuntu/Linux environment
+
 // my view point of this project
 
 // metrics of detection
+
+while classifying
 
 I know it will return the current result e.g.
 
@@ -47,14 +55,17 @@ https://www.npmjs.com/package/jayson
 
 # Discussion 
 
+
+
 a - i > i
 believe * ;
 
 
 # in the future
+to invalid user
 1, based on my current structure
 2, decide what is continues video, length etc.
 
 
-http://localhost:3000/api/v1/videos/5bc3d5722300422fc58c7b02
+curl http://localhost:3000/api/v1/videos/5bc3d5722300422fc58c7b02
 {"Angelina Jolie":["4.0-14.0","93.0-106.0"],"Adam Brody":["43.0-96.0"],"Brad Pitt":["4.0-126.0"]}

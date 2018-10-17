@@ -22,10 +22,10 @@ function getTypes(a, callback) {
   });
 }
 
-function getActorsScenes(a, b, callback) {
-  client.request('getActorsScenes', [a, b], function(err, response) {
+function getActorsScenes(a, callback) {
+  client.request('getActorsScenes', a, function(err, response) {
     if(err) throw err;
-    console.log(response.result);
+    callback(response.result);
   })
 }
 

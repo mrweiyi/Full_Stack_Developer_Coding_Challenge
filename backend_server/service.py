@@ -54,29 +54,26 @@ class RequestHandler(pyjsonrpc.HttpRequestHandler):
         # print actorArr
         return True
 
-    '''
     @pyjsonrpc.rpcmethod
-    def getJsontoDIct(self, actorArrDict):
-    '''
-
-
-
-
-    @pyjsonrpc.rpcmethod
-    def getActorsScenes(self, timeArr, actorArr):
-        #timeArr = list(timeArr)
+    def getActorsScenes(self, jsonstring):
+        print jsonstring
+        arr = json.loads(jsonstring)
+        print arr
+        timeArr = arr[0]
         print timeArr
-        #actorArr = list(actorArr)
+        actorArr = arr[1]
         print actorArr
         for arr in timeArr :
             if(len(arr) != 0):
                 for j in range(0,len(arr)) :
-                    arr[j] = int(arr[j])
+                    arr[j] = float(arr[j])
+        print timeArr
         res = {}
         length = len(timeArr)
         for i in range(length):
             if(len(timeArr[i]) != 0):
                 res[actorArr[i]] = getScene(timeArr[i])
+        print res
         return res;      
 
 

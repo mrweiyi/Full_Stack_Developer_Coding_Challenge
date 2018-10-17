@@ -1,31 +1,13 @@
+const Matroid = require('matroid');
+const util = require('util');
+let api = new Matroid({clientId: 'H4AaifnFA4177jWX', clientSecret: '2nwzFJpDCPnpHBMSWrbnEPj4szO3XuPg'});
 var rpcClient = require('./rpc_client');
+let videoId = '5bc3d5722300422fc58c7b02';
 
 
 
-let getVideoResult = function() {
+let getVideoResult = function(videoResult) {
     return new Promise(function(resolve, reject) {
-        let videoResult = {
-            "download_progress":100,
-            "classification_progress":100,
-            "status":"Classification complete",
-            "label_dict":
-            {
-                "0":"Adam Brody",
-                "1":"Angelina Jolie",
-                "2":"Brad Pitt",
-                "3":"Kerry Washington",
-                "4":"Michelle Monaghan",
-                "5":"Vince Vaughn"
-            },
-            "state":"success",
-            "detections":
-            {
-                "5356":[{"labels":{"5":0.9986},"bbox":{"width":0.2365,"top":0,"height":0.8039,"left":0.2436}},{"labels":{"3":0.9987},"bbox":{"width":0.137,"top":0.1326,"height":0.442,"left":0.2717}}],
-                "5383.5":[{"labels":{"5":0.9987},"bbox":{"width":0.137,"top":0.1326,"height":0.442,"left":0.2717}},{"labels":{"4":0.9987},"bbox":{"width":0.137,"top":0.1326,"height":0.442,"left":0.2717}}]
-            },
-            "video_id":"5a3ec65b37939b0013123535",
-            "detection_fps":2
-        }    
         if (videoResult != null && videoResult !== undefined) {
             resolve(videoResult);
         } else {
@@ -69,18 +51,19 @@ let fillArr = function(dataArr, videoResult){
 
 let getActorsScenes= function(json_string) {
     return new Promise(function(resolve, reject) {
-        rpcClient.getValidInput([json_string], function(response){
+        rpcClient.getActorsScenes([json_string], function(response){
             resolve(response);
         });
-        
     })
 }
 
-getVideoResult()
-        .then(videoResult => genArr(videoResult))
-        .then(outputGenArr => fillArr(outputGenArr[0],outputGenArr[1]))
-        .then(outputFillArr => getActorsScenes(JSON.stringify(outputFillArr)))
-        .then(response => console.log(response))
-        .catch(error => console.error('Something happened:', error));
+api.retrieveToken()
+.then(token => api.getVideoResults(videoId, 0.994, JSON))
+.then(classifications => getVideoResult(classifications) )
+.then(videoResult => genArr(videoResult))
+.then(outputGenArr => fillArr(outputGenArr[0],outputGenArr[1]))
+.then(outputFillArr => getActorsScenes(JSON.stringify(outputFillArr)))
+.then(response => console.log(response))
+.catch(error => console.error('Something happened:', error));
 
 

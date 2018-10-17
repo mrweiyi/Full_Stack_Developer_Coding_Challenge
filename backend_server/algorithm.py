@@ -24,7 +24,6 @@ def getActorsScenes(timeArr, actorArr):
     return res;   
 
 
-
 def getScenes(arr):
     res = []
     length = len(arr)

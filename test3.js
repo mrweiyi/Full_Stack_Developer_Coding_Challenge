@@ -1,19 +1,41 @@
-const classification = { download_progress: 100,
-    classification_progress: 100,
-    status: 'Classification complete',
-    label_dict:
-     { '0': 'Adam Brody',
-       '1': 'Angelina Jolie',
-       '2': 'Brad Pitt',
-       '3': 'Kerry Washington',
-       '4': 'Michelle Monaghan',
-       '5': 'Vince Vaughn' },
-    state: 'success',
-    detections:
-     { '95':
-        [ { labels: { '1': 0.9982 },
-            bbox: { width: 0.1514, top: 0.1478, height: 0.3689, left: 0.4298 } } ] },
-    video_id: '5bc3d5722300422fc58c7b02',
-    detection_fps: 1 };
+function actorAndRange (name,range) {
+    this.person = name;
+    this.scenes = range;
+}
 
-console.log(classification["status"]);
+let temp = new actorAndRange("Kerry Wash",["20-15","22-21"]);
+
+let arrOfArr = [ [], [], ['25','25.5','26', '30','30.1','30.2','40','41'], [ '5356' ], [ '5383.5' ], [ '5356', '5383.5' ] ];
+
+let arr = arrOfArr[2];
+// console.log(arr);
+
+let computeRange = function (arr) {
+    return new Promise(function(resolve, reject) {
+        let res = [];
+        let start = 0;
+        for (let i = 0, p = Promise.resolve(); i < arr.length; ++i) {
+            
+
+                    resolve(res); 
+        }
+    
+}
+
+computeRange([ '25', '25.5', '26', '30', '30.1', '30.2', '40', '41' ])
+    .then(res => console.log(res))
+    .catch(error => console.error('Something happened:', error));
+
+    
+    if(arr[i] - arr[i-1] > 1.5) {
+        res.push([arr[start],arr[i-1]]);
+        start = i;
+    }
+    
+
+
+function rangeOfScene() {
+    
+}
+
+

@@ -22,9 +22,9 @@ let videoResult = {
 }    
 
 let dataArr = [[],[],[],[],[],[]];
+
+
 let detections = videoResult[Object.keys(videoResult)[5]];
-
-
 for(let i in detections) {
     for(let j in detections[i]){
         let key1 = Object.keys(detections[i][j])[0];
@@ -32,10 +32,4 @@ for(let i in detections) {
         dataArr[key2].push(i);
         console.log(dataArr);
     }
-    //dataArr[      ].push()
-    
 }
-// detections videoResult[Object.keys(videoResult)[5]]
-// ith detection(videoResult[Object.keys(videoResult)[5]][i]);
-// jth item in above array : videoResult[Object.keys(videoResult)[5]][i][j]
-// labels: Object.keys(videoResult[Object.keys(videoResult)[5]][i][0])[0]

@@ -28,6 +28,17 @@ what does classfy here mean?
 
 // workflow
 
+
+//duo ceng qian tao 
+
 // Suggestion
 https://github.com/matroid/matroid-node
 API describe "abc" ...
+
+# install
+
+node,npm
+python@2
+
+https://pypi.org/project/python-jsonrpc/
+https://www.npmjs.com/package/jayson

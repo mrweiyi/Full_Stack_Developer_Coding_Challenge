@@ -82,13 +82,17 @@ def getC():
     return c
 
 def getScene(arr):
+    arr.sort()
     res = []
     start = 0
     length = len(arr)
     for i in range(1, length): 
-        if(arr[i] - arr[i-1] > 10):
-            res.append(str(arr[start]) + '-' + str(arr[i-1]))
-            start = i
+        if(arr[i] - arr[i-1] > 45):
+            if(start == i):
+                start = i + 1
+            else:
+                res.append(str(arr[start]) + '-' + str(arr[i-1]))
+                start = i
         if(i == length - 1):
             res.append(str(arr[start]) + '-' + str(arr[i]))
             return res

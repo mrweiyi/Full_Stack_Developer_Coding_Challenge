@@ -49,3 +49,12 @@ https://www.npmjs.com/package/jayson
 
 a - i > i
 believe * ;
+
+
+# in the future
+1, based on my current structure
+2, decide what is continues video, length etc.
+
+
+http://localhost:3000/api/v1/videos/5bc3d5722300422fc58c7b02
+{"Angelina Jolie":["4.0-14.0","93.0-106.0"],"Adam Brody":["43.0-96.0"],"Brad Pitt":["4.0-126.0"]}

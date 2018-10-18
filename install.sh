@@ -7,6 +7,3 @@ python --version
 sudo apt-get install python-pip
 sudo apt-get update
 pip install python-jsonrpc
-npm install 
-node service.js &
-python service.py 

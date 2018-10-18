@@ -57,9 +57,6 @@ You should get:
 
 If get invalid video ID, the server will return "(52) Empty reply from server". 
 
-# Test 
-
-As required, this API currently only takes input as Video ID and analysis the video by .
 
 # Work Flow and Tech
 >1 Node Server
